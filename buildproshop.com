@@ -10,3 +10,7 @@ Password = qwerty246
 05. axios
 06. django-cors-headers
 07. pillow
+08. redux
+09. react-redux
+10. redux-thunk
+11. redux-devtools-extension
