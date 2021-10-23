@@ -3,6 +3,7 @@ Email Address = lisgevan@gmail.com
 Password = qwerty246
 
 |==> Technologies <==|
+00. DJANGO - REACT
 01. django-rest-framework
 02. react-bootstrap
 03. react-router-bootstrap
@@ -14,3 +15,4 @@ Password = qwerty246
 09. react-redux
 10. redux-thunk
 11. redux-devtools-extension
+12. djangorestframework-simplejwt
