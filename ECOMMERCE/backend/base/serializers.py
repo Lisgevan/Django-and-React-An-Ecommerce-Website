@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from rest_framework_simplejwt.tokens import RefreshToken
 from .models import Product, Order, OrderItem, ShippingAddress
 
-class UserSerialiser(serializers.ModelSerializer):
+class UserSerializer(serializers.ModelSerializer):
     name=serializers.SerializerMethodField(read_only=True)
     _id=serializers.SerializerMethodField(read_only=True)
     isAdmin=serializers.SerializerMethodField(read_only=True)
@@ -23,7 +23,7 @@ class UserSerialiser(serializers.ModelSerializer):
             name=obj.email
         return name
 
-class UserSerializerWithToken(UserSerialiser):
+class UserSerializerWithToken(UserSerializer):
     token=serializers.SerializerMethodField(read_only=True)
     class Meta:
         model = User
@@ -71,5 +71,5 @@ class OrderSerialiser(serializers.ModelSerializer):
 
     def get_user(self, obj):
         user = obj.user
-        serializer = UserSerialiser(user, many=False)
+        serializer = UserSerializer(user, many=False)
         return serializer.data
