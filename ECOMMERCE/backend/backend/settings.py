@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-n20#^8th0sk&omrw&m0v+m%9gycr%+hwxcwez0_c-w6wu37&@^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'https://my-pro-shop.herokuapp.com/']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'my-pro-shop.herokuapp.com']
 
 
 # Application definition
@@ -221,6 +221,8 @@ AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
 AWS_STORAGE_BUCKET_NAME = 'myproshopbucket'
 
 
-#If website is live set DEbug to false
+#If website is live set DEBUG to false and change to https if it does not autochange when http is added
 if os.getcwd() == '/app':
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+    SECURE_SSL_REDIRECT = True
     DEBUG = False
